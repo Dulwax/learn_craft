@@ -1,0 +1,130 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="home" href="{{ siteUrl }}" />
+	{% block css %}
+		<link href="{{ siteUrl }}assets/less/agency.css" rel="stylesheet">
+		<link href="{{ siteUrl }}assets/bootstrap.min.css" rel="stylesheet">
+	{% endblock css %}
+
+	{% block fonts %}
+	<!-- Custom Fonts -->
+    <link href="{{ siteUrl }}assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	{% endblock fonts %}
+</head>
+<body id="page-top" class="index">
+
+	<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="{{ siteUrl }}#page-top">{{ siteName }}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    {% set uriSegment = craft.request.segment(1) %}
+			
+				
+				    <li><a {% if uriSegment == "about" %}class="page-scroll" {% endif %} href="#about">About</a></li>
+				    <li><a {% if uriSegment == "projects" %}class="page-scroll"{% endif %} href="#projects">Projects</a></li>
+				    <li><a {% if uriSegment == "news" %}class="page-scroll"{% endif %} href="#news">News</a></li>
+				    <li><a {% if uriSegment == "services" %}class="page-scroll"{% endif %} href="#services">Services</a>
+				    	<!--{% set pages = craft.entries.section('services').level(1) %}
+								    <ul>
+
+								        {% for page in pages %}
+								            <li>{{ page.getLink() }}</li>
+								        {% endfor %}
+								    </ul>	-->	
+				    </li>
+				    
+				
+			
+			
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+   
+    <header>
+    	
+        <div class="container">
+            
+            <div class="intro-text">
+            	 {% block head %}
+	                <div class="intro-lead-in">Wf you see me, you haven’t set your <code>{% verbatim %}{% endverbatim %}</code> yet.</div>
+	                <div class="intro-heading">See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</div>
+	                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                {% endblock %} 
+            </div>
+            
+        </div>
+       
+    </header>
+
+    {% block container %}
+
+
+     {% endblock %} 
+	<div id="container">
+		
+		
+
+		<footer id="footer">
+			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://craftcms.com">Craft</a>
+		</footer>
+	</div>
+	
+	<!-- jQuery -->
+    <script src="{{ siteUrl }}assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ siteUrl }}assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{{ siteUrl }}assets/js/classie.js"></script>
+    <script src="{{ siteUrl }}assets/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{{ siteUrl }}assets/js/jqBootstrapValidation.js"></script>
+    <script src="{{ siteUrl }}assets/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ siteUrl }}assets/js/agency.js"></script>
+</body>
+</html>
