@@ -80,23 +80,9 @@ h1, h2, h3, h4, h5, h6 {
 
 // Custom Navigation Bar
 
-
 .navbar-default {
 	background-color: @gray-darkest;
 	border-color: transparent;
-	ul{
-
-		li{
-
-			ul{
-				display: none;
-
-			}
-
-			
-		}
-	}
-
 	.navbar-brand {
 		color: @brand-primary;
 		.script-font;
@@ -351,6 +337,11 @@ section {
         margin-bottom: 50px;
         position: relative;
         min-height: 50px;
+        width: 100%;
+        float: left;
+        padding: 0 20px 0 100px;
+        position: relative;
+        text-align: left;
         &:before,
         &:after {
             content: " ";
@@ -359,7 +350,7 @@ section {
         &:after {
         	clear: both;
         }
-		.timeline-panel {
+		&:nth-child(2n) {
 	        width: 100%;
             float: right;
             padding: 0 20px 0 100px;
@@ -459,8 +450,8 @@ section {
 	            	line-height: 18px;
 	            }
 	        }
-	        &.timeline-inverted > .timeline-panel {
-	            float: right;
+	        &:nth-child(2n).timeline-panel {
+	            float: right !important;
 	            text-align: left;
 	            padding: 0 30px 20px 20px;
 	        }
