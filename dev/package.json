@@ -1,18 +1,21 @@
 {
-  "name": "dev",
+  "name": "gruntProject",
   "version": "1.0.0",
   "description": "fffffgfd",
   "main": "index.js",
   "scripts": {
-    "test": "fgfdg"
+    "test": ""
   },
   "repository": {
     "type": "git",
-    "url": "fg"
+    "url": "https://github.com/Dulwax/learn_craft"
   },
   "keywords": [
-    "fdgfd"
+    "Learn craft"
   ],
-  "author": "dfgfd",
-  "license": "ISC"
+  "author": "Lwandle Mthombeni",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
 }
